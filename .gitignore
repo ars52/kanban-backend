@@ -15,6 +15,7 @@ downloads/
 eggs/
 .eggs/
 lib/
+kanbanvenv/
 lib64/
 parts/
 sdist/
