@@ -5,4 +5,4 @@ router = APIRouter()
 
 @router.get("/")
 def read_logs():
-    return {"message": "Сов"}
+    return {"message": "Список логов"}

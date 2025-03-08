@@ -5,4 +5,4 @@ router = APIRouter()
 
 @router.get("/")
 def read_tasks():
-    return {"message": "Список проектов"}
+    return {"message": "Список задач"}

@@ -1,19 +1,17 @@
-from fastapi import FastAPI  # Подключение к базе данных и настройки SessionLocal
+from fastapi import FastAPI
 from app.database import engine
-# Базовый класс для моделей SQLAlchemy # Импорт роутеров для эндпоинтов
 from app.models import Base
-from app.routers import users, projects, tasks, logs
+from app.routers import users, projects, tasks, logs  # сущности
 
 app = FastAPI(
     title="Kanban Board API",
-    description="Демо-проект для практикума: управление канбан-доской",
+    description="Управление канбан-доской",
     version="1.0.0"
 )
 
-# Создаем все таблицы в базе данных (для разработки; в продакшене обычно применяются миграции)
 Base.metadata.create_all(bind=engine)
 
-# Подключаем роутеры для группировки эндпоинтов
+# роутеры для группировки эндпоинтов
 app.include_router(users.router, prefix="/users", tags=["Users"])
 app.include_router(projects.router, prefix="/projects", tags=["Projects"])
 app.include_router(tasks.router, prefix="/projects", tags=["Tasks"])
